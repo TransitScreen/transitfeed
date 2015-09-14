@@ -1,15 +1,5 @@
-# transitfeed
+# gtfsfeedvalidator
 
-Provides a library to help you parse, validate, and generate [General Transit Feed Spec (GTFS)](https://developers.google.com/transit/gtfs/) feed files.  See INSTALL for installation instructions.
+This is a hosted version of the [General Transit Feed Spec (GTFS)](https://developers.google.com/transit/gtfs/) feed validator (feedvalidator.py) from the [transitfeed](https://github.com/google/transitfeed/wiki) project.
 
-For the latest documentation, see:
-
-https://github.com/google/transitfeed/wiki
-
-For the latest release and downloads, see:
-
-https://github.com/google/transitfeed/releases/latest
-
-For general questions, send a message to the mailing list:
-
-https://groups.google.com/forum/#!forum/transitfeed
+It's a Flask app, [running on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python-o).
