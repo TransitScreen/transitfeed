@@ -11,3 +11,7 @@ http://flask.pocoo.org/docs/0.10/quickstart/#a-minimal-application
 http://stackoverflow.com/questions/20646822/how-to-serve-static-files-in-flask
 
 http://flask.pocoo.org/docs/0.10/patterns/fileuploads/#uploading-files
+
+TODO
+
+Timezone not checked (install pytz package for timezone validation)
