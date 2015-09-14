@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request
+from flask import Flask, request, url_for, send_file
 from feedvalidator import RunValidationOutputToFilename, ParseCommandLineArguments
 import transitfeed
 from transitfeed import util
@@ -19,7 +19,7 @@ def upload_file():
         parser = util.OptionParserLongError(
           usage='', version='%prog '+transitfeed.__version__)
 
-        parser.set_defaults(manual_entry=True, output='validation-results.html',
+        parser.set_defaults(manual_entry=False, output=output_filename,
                       memory_db=False, check_duplicate_trips=False,
                       limit_per_type=5, latest_version='',
                       service_gap_interval=13)
@@ -33,8 +33,7 @@ def upload_file():
     	# plain text string is '' if no other problems are found.
     	# return send_from_directory(output_filename)
 
-    	return app.send_static_file('success.html')
-
+    	return send_file(output_filename)
 
 if __name__ == '__main__':
   app.run(debug=True)
