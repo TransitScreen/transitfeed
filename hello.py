@@ -17,6 +17,7 @@ def index():
 def upload_file():
     if request.method == 'POST':
       f = request.files['gtfsfeedzip']
+      # need to separate load from parsing since we hit 30 second timeout
       parse_file(f)
       return send_file(output_filename)
 

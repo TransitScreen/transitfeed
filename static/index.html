@@ -6,9 +6,8 @@
 </head>
 <body>
 
-<h1>Upload GTFS File (.zip format)</h1>
 <form method=POST enctype=multipart/form-data action="/upload">
-    File:
+    Upload a GTFS feed (ZIP file):
     <input type=file name="gtfsfeedzip">
     <button>Upload</button>
 </form>
@@ -16,7 +15,7 @@
 <br><br>
 
 <form method=POST action="/validate">
-    URL: 
+    Submit a GTFS feed URL: 
     <input type=url name="gtfsfeedurl">
     <button>Validate</button>    
 </form>
