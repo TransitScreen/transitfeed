@@ -3,22 +3,48 @@
 <head>
   <meta charset="utf-8" />
   <title>GTFS Feed Validator</title>
+
+  <link rel="stylesheet" href="normalize-3.0.2.css"></link>
+  <link rel="stylesheet" href="main.css"></link>
+
 </head>
 <body>
 
-<form method=POST enctype=multipart/form-data action="/upload">
-    Upload a GTFS feed (ZIP file):
-    <input type=file name="gtfsfeedzip">
-    <button>Upload</button>
-</form>
 
-<br><br>
+<section class="container">
 
-<form method=POST action="/validate">
-    Submit a GTFS feed URL: 
-    <input type=url name="gtfsfeedurl">
-    <button>Validate</button>    
-</form>
+  <header class="main-header">
+    <h1 class="logo">GTFS Feed Validator</h1>
+  </header>
+
+  <section class="main-content">
+
+    <article>
+
+      <form method="POST" enctype="multipart/form-data" action="/upload" class="uploader">
+          <h2>Upload a GTFS feed (ZIP file):</h2>
+          <input type="file" name="gtfsfeedzip">
+          <button>Upload</button>
+      </form>
+
+      <br><br>
+
+      <form method="POST" action="/validate" class="uploader">
+          <h2>Submit a GTFS feed URL:</h2> 
+          <input type="url" maxlength="500" size="50" name="gtfsfeedurl">
+          <button>Validate</button>    
+      </form>
+
+    </article>
+
+  </section>
+
+  <footer class="main-footer">
+    Provided by 
+    <a href="http://transitscreen.com"><img class="brand" src="transitscreenlogo.png" alt="Transit Screen" /></a>
+  </footer>
+
+</section>
 
 </body>
 </html>
