@@ -47,13 +47,5 @@
 </section>
 
 </body>
-<script>
-	setInterval(function(){
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open( "GET", "/?v=" + (+new Date()) ); // false for synchronous request
-		xmlHttp.send( null );
-		console.log(xmlHttp.responseText);
-		return xmlHttp.responseText;
-	}, 15000);
-</script>
+
 </html>
