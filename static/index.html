@@ -47,4 +47,13 @@
 </section>
 
 </body>
+<script>
+	setInterval(function(){
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "/" ); // false for synchronous request
+		xmlHttp.send( null );
+		console(xmlHttp.responseText);
+		return xmlHttp.responseText;
+	}, 15000);
+</script>
 </html>
