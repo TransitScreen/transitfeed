@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application xdt:Locator="Match(fullPath)" xdt:Transform="SetAttributes(activityTimeout)"
+            fullPath="D:\Python27\python.exe" activityTimeout="3600"/>
+    </fastCgi>
+  </system.webServer>
+</configuration>
