@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>GTFS Scheduler Viewer</title>
+
+  <link rel="stylesheet" href="static/normalize-3.0.2.css"></link>
+  <link rel="stylesheet" href="static/main.css"></link>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+
+<section class="container">
+
+  <header class="main-header">
+    <h1 class="logo">GTFS Scheduler Viewer</h1>
+  </header>
+
+  <section class="main-content">
+
+    <article>
+
+      <form method="POST" enctype="multipart/form-data" action="/upload" class="uploader">
+          <h2>Upload a GTFS feed (ZIP file):</h2>
+          <input type="file" name="gtfsfeedzip">
+          <button>Upload</button>
+      </form>
+
+      <br><br>
+
+      <form method="POST" action="/validate" class="uploader">
+          <h2>Submit a GTFS feed URL:</h2> 
+          <input type="url" maxlength="500" size="50" name="gtfsfeedurl">
+          <button>Validate</button>    
+      </form>
+
+    </article>
+
+  </section>
+
+  <footer class="main-footer">
+    Provided by 
+    <a href="http://transitscreen.com"><img class="brand" src="static/TransitScreen_Logo.svg" alt="Transit Screen" /></a>
+  </footer>
+	<footer class="text-align-center">
+		<small><strong>Note:</strong> Scheduler Viewer can only process files under about 5 MB. If your GTFS file is larger, you can run the <a href="https://github.com/google/transitfeed/wiki/ScheduleViewer">feed validator software</a> on your own computer.</small>
+	</footer>
+</section>
+
+</body>
+
+</html>

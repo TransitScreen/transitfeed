@@ -135,14 +135,17 @@ def main():
                     help='sqlite db')
   parser.set_defaults(database=':memory:', interactive=False)
   (options, args) = parser.parse_args()
-  conn = sqlite.connect(options.database)
-
+  conn = sqlite.connect(options.database, check_same_thread=False)
+  print("Before loaddir")
   if options.load_dir:
+    print("In Load_dir")
     for entry in os.listdir(options.load_dir):
       if re.search(r"\.txt", entry):
+        print("LoadNamedFile being call after re search")
         LoadNamedFile(os.path.join(options.load_dir, entry), conn)
 
   if options.load_file:
+    print("options.load_file")
     LoadNamedFile(options.load_file, conn)
 
   cursor = conn.cursor()

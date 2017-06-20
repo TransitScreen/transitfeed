@@ -566,6 +566,7 @@ class Loader:
       # wrap problems and a better solution is to move all validation out of
       # __init__. For now make sure Trip.GetStopTimes gets a problem reporter
       # when called from Trip.Validate.
+      print("goes here")
       stop_time = stop_time_class(self._problems, stop,
           arrival_time, departure_time, stop_headsign, pickup_type,
           drop_off_type, shape_dist_traveled, stop_sequence=sequence,

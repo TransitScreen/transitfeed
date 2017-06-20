@@ -6,3 +6,4 @@ gunicorn==19.3.0
 itsdangerous==0.24
 wsgiref==0.1.2
 pytz==2015.4
+flask_session==0.3.1

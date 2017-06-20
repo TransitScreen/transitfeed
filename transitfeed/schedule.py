@@ -81,6 +81,22 @@ class Schedule(object):
     self._check_duplicate_trips = check_duplicate_trips
     self.ConnectDb(memory_db)
 
+  # def __getstate__(self):
+  #    print "I'm being pickled"
+  #    dict = self.__dict__
+  #    print self.__dict__.keys()
+  #    if '_connection' in dict:
+  #       del self.__dict__['_connection']
+  #    if '_gtfs_factory' in dict:
+  #       del self.__dict__['_gtfs_factory']
+  #    if '_transfers' in dict:
+  #       del self.__dict__['_transfers']
+  #    return {'stops': dict['stops']}
+
+  # def __setstate__(self, d):
+  #    print "I'm being unpickled with these values:", d
+  #    self.__dict__ = d
+
   def AddTableColumn(self, table, column):
     """Add column to table if it is not already there."""
     if column not in self._table_columns[table]:
@@ -110,7 +126,11 @@ class Schedule(object):
   def ConnectDb(self, memory_db):
     def connector(db_file):
       if native_sqlite:
-        return sqlite.connect(db_file)
+        # Add check_same_thread to false. By default the SQL Lite DB can only be accessed
+        # in the same thread. The issue is that the HTTP Server in now launched in a seprarate thread
+        # (since it's triggered from the flask server and we need the HTTP request to return to the client^^)
+        # Setting it to false enables us to have both server running sepraretely, the HTTP Server acting as a web API
+        return sqlite.connect(db_file, check_same_thread=False)
       else:
         return sqlite.connect("jdbc:sqlite:%s" % db_file,
                               "", "", "org.sqlite.JDBC")
